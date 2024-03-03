@@ -1,4 +1,4 @@
-package validadores
+package validadores_golang
 
 import (
 	"testing"

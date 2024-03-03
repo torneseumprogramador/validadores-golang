@@ -1,4 +1,4 @@
-# Validadores
+# Validadores Golang
 - O objetivo desta lib é estudar a criação de bibliotecas em golang
 - O mesmo foi criado no desafio de golang da comunidade do: https://www.torneseumprogramador.com.br/
 - Toda gravação está disponilibizada aqui: https://www.torneseumprogramador.com.br/cursos/desafio_go_lang/aulas
@@ -16,7 +16,7 @@ sh tests.sh
 
 ## Estrutura de arquivos
 ```
-validadores/
+validadores_golang/
 ├── .gitignore                  # Arquivo para ignorar arquivos no Git
 ├── go.mod                      # Arquivo de módulo Go, contendo dependências
 ├── README.md                   # Documentação inicial do projeto
@@ -31,8 +31,8 @@ validadores/
 
 ## Como instalar
 ```shell
-go get https://github.com/torneseumprogramador/validadores-golang # ultima versão
-go get https://github.com/torneseumprogramador/validadores-golang@v0.0.1 # especificando a versão
+go get github.com/torneseumprogramador/validadores_golang # ultima versão
+go get github.com/torneseumprogramador/validadores_golang@v0.0.1 # especificando a versão
 ```
 
 ## Como utilizar validador CPF
@@ -41,13 +41,13 @@ package main
 
 import (
 	"fmt"
-	_ "github.com/torneseumprogramador/validadores-golang"
+	_ "github.com/torneseumprogramador/validadores_golang"
 )
 
 func main() {
     cpf := "748.469.830-05"
     esperado := true
-    resultado, err := validadores.ValidarCPF(cpf)
+    resultado, err := validadores_golang.ValidarCPF(cpf)
     if resultado != esperado {
         fmt.Printf("ValidarCPF(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
     } else {
@@ -56,7 +56,7 @@ func main() {
 
 
     cpf = "748.469.830-01"
-    resultado, err = validadores.ValidarCPF(cpf)
+    resultado, err = validadores_golang.ValidarCPF(cpf)
     fmt.Printf("ValidarCPF(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
 }
 ```
@@ -68,13 +68,13 @@ package main
 
 import (
 	"fmt"
-	_ "github.com/torneseumprogramador/validadores-golang"
+	_ "github.com/torneseumprogramador/validadores_golang"
 )
 
 func main() {
     cnpj := "25.823.284/0001-47"
 	esperado := true
-	resultado, err := validadores.ValidarCNPJ(cnpj)
+	resultado, err := validadores_golang.ValidarCNPJ(cnpj)
     if resultado != esperado {
         fmt.Printf("ValidarCNPJ(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
     } else {
@@ -83,7 +83,7 @@ func main() {
 
 
     cnpj = "25.823.284/0001-48"
-    resultado, err = validadores.ValidarCNPJ(cnpj)
+    resultado, err = validadores_golang.ValidarCNPJ(cnpj)
     fmt.Printf("ValidarCNPJ(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
 }
 ```
