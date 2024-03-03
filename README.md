@@ -34,6 +34,11 @@ validadores/
 ```
 
 
+## Como instalar
+```shell
+go get https://github.com/torneseumprogramador/validadores-golang
+```
+
 ## Como utilizar validador CPF
 ```go
 package main
