@@ -24,20 +24,17 @@ sh tests.sh
 validadores/
 ├── .gitignore                  # Arquivo para ignorar arquivos no Git
 ├── go.mod                      # Arquivo de módulo Go, contendo dependências
-├── go.sum                      # Soma de verificação para as dependências
 ├── README.md                   # Documentação inicial do projeto
 ├── cpf.go                      # Implementação da validação de CPF
 ├── cpf_test.go                 # Testes para a validação de CPF
 ├── cnpj.go                     # Implementação da validação de CNPJ
 ├── cnpj_test.go                # Testes para a validação de CNPJ
-└── examples/                   # Exemplos de como usar sua biblioteca
-    ├── example_cpf.go          # Exemplo de como validar CPF
-    └── example_cnpj.go         # Exemplo de como validar CNPJ
+├── lint.sh                     # Formata e valida código
+├── tests.sh                    # Roda os testes
 ```
 
 
-## Como utilizar
-
+## Como utilizar validador CPF
 ```go
 package main
 
@@ -60,5 +57,32 @@ func main() {
     cpf = "748.469.830-01"
     resultado, err = validadores.ValidarCPF(cpf)
     fmt.Printf("ValidarCPF(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
+}
+```
+
+
+## Como utilizar validador CNPJ
+```go
+package main
+
+import (
+	"fmt"
+	_ "github.com/torneseumprogramador/validadores-golang"
+)
+
+func main() {
+    cnpj := "25.823.284/0001-47"
+	esperado := true
+	resultado, err := validadores.ValidarCNPJ(cnpj)
+    if resultado != esperado {
+        fmt.Printf("ValidarCNPJ(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
+    } else {
+        fmt.Println("CNPJ (%s) validado com sucesso", cnpj)
+    }
+
+
+    cnpj = "25.823.284/0001-48"
+    resultado, err = validadores.ValidarCNPJ(cnpj)
+    fmt.Printf("ValidarCNPJ(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
 }
 ```
