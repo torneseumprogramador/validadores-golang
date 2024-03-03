@@ -9,11 +9,6 @@
 sh lint.sh
 ```
 
-## Rodar o código
-```shell
-sh run.sh
-```
-
 ## Testes
 ```shell
 sh tests.sh
