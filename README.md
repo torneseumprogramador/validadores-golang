@@ -34,3 +34,31 @@ validadores/
     ├── example_cpf.go          # Exemplo de como validar CPF
     └── example_cnpj.go         # Exemplo de como validar CNPJ
 ```
+
+
+## Como utilizar
+
+```go
+package main
+
+import (
+	"fmt"
+	_ "github.com/torneseumprogramador/validadores-golang"
+)
+
+func main() {
+    cpf := "748.469.830-05"
+    esperado := true
+    resultado, err := validadores.ValidarCPF(cpf)
+    if resultado != esperado {
+        fmt.Printf("ValidarCPF(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
+    } else {
+        fmt.Println("CPF (%s) validado com sucesso", cpf)
+    }
+
+
+    cpf = "748.469.830-01"
+    resultado, err = validadores.ValidarCPF(cpf)
+    fmt.Printf("ValidarCPF(%s) = %v; esperado %v (erro: %v)", cpf, resultado, esperado, err)
+}
+```
