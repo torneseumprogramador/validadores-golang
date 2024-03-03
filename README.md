@@ -36,7 +36,8 @@ validadores/
 
 ## Como instalar
 ```shell
-go get https://github.com/torneseumprogramador/validadores-golang
+go get https://github.com/torneseumprogramador/validadores-golang # ultima versão
+go get https://github.com/torneseumprogramador/validadores-golang@v0.0.1 # especificando a versão
 ```
 
 ## Como utilizar validador CPF
